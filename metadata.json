@@ -1,6 +1,8 @@
 {
-  "name": "OpoSanitat CV - Oposiciones Enfermería",
+  "name": "Remix OpoSanitat CV - Oposiciones Enfermería",
   "description": "Plataforma integral de preparación de oposiciones de enfermería en la Comunidad Valenciana con tests interactivos, temario adaptativo, casos clínicos, mnemotecnia, exámenes oficiales y estadísticas.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

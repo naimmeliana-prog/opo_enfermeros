@@ -151,6 +151,16 @@ export const DeploymentGuideModal: React.FC<DeploymentGuideModalProps> = ({ isOp
                   </div>
                 </div>
 
+                <div className="p-3 bg-teal-50 dark:bg-teal-950/40 rounded-xl border border-teal-200 dark:border-teal-800 text-xs text-teal-900 dark:text-teal-200">
+                  <p className="font-bold mb-1">✅ Solución al error "sh: 1: tsx: not found":</p>
+                  <p>Hemos actualizado <code className="font-mono bg-teal-100 dark:bg-teal-900 px-1 rounded">package.json</code> para que <code className="font-mono font-bold">npm start</code> ejecute <code className="font-mono font-bold">node server.ts</code> directamente en Node 24 sin depender de tsx. Solo haz <code className="font-mono font-bold">git push</code> para que Render reconstruya la versión corregida.</p>
+                </div>
+
+                <div className="p-3 bg-amber-50 dark:bg-amber-950/40 rounded-xl border border-amber-200 dark:border-amber-800 text-xs text-amber-900 dark:text-amber-200">
+                  <p className="font-bold mb-1">⚡ Alternativa aún más rápida en Render: "Static Site"</p>
+                  <p>Si prefieres no gestionar un servidor Node, puedes crear un <strong>Static Site</strong> en Render con Build Command: <code className="font-mono font-bold">npm run build</code> y Publish Directory: <code className="font-mono font-bold">dist</code>. Toda la plataforma (tests, simulador, temario, casos y foro) funcionará al 100% en el navegador.</p>
+                </div>
+
                 <div className="pt-2">
                   <h5 className="font-bold text-xs text-slate-800 dark:text-slate-200 mb-1.5">Variables de Entorno (Environment Variables):</h5>
                   <div className="bg-slate-50 dark:bg-slate-800 p-3 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-mono space-y-1">
