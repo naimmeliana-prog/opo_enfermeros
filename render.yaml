@@ -1,0 +1,15 @@
+services:
+  # Option A: Fullstack Node.js Web Service on Render (Serves both Express API and Vite React)
+  - type: web
+    name: oposanitat-cv
+    runtime: node
+    plan: free
+    buildCommand: npm install --legacy-peer-deps && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: GEMINI_API_KEY
+        sync: false

@@ -1,0 +1,185 @@
+import { OfficialExam } from '../types';
+import { QUESTIONS_BANK } from './questions';
+
+export const OFFICIAL_EXAMS: OfficialExam[] = [
+  {
+    id: 'gva-2024-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2024',
+    subtitle: 'Convocatoria Extraordinaria de Estabilización por Concurso-Oposición - Turno Libre',
+    year: 2024,
+    organism: 'Conselleria de Sanitat - Generalitat Valenciana',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.year === 2024 || q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'eir-2024-oficial',
+    oppositionId: 'eir-cv',
+    title: 'Examen EIR 2024 - Plazas Especializadas CV',
+    subtitle: 'Ministerio de Sanidad & Conselleria de Sanitat - Cuaderno Oficial',
+    year: 2024,
+    organism: 'Ministerio de Sanidad & Generalitat Valenciana',
+    questionsCount: 100,
+    durationMinutes: 120,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('eir-cv'))
+  },
+  {
+    id: 'gva-2023-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2023',
+    subtitle: 'Convocatoria Turno Libre y Promoción Interna - Plantilla Definitiva',
+    year: 2023,
+    organism: 'Conselleria de Sanitat Universal i Salut Pública (GVA)',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.year === 2023 || q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'chguv-2023-oficial',
+    oppositionId: 'chguv-valencia',
+    title: 'Examen Oficial OPE CHGUV Valencia 2023',
+    subtitle: 'Consorci Hospital General Universitari de València - Turno Ordinario',
+    year: 2023,
+    organism: 'Consorcio Hospital General de Valencia',
+    questionsCount: 80,
+    durationMinutes: 100,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('chguv-valencia'))
+  },
+  {
+    id: 'eir-2023-oficial',
+    oppositionId: 'eir-cv',
+    title: 'Examen EIR 2023 - Formación Sanitaria Especializada CV',
+    subtitle: 'Pruebas Selectivas Oficiales de Acceso a Especialidades de Enfermería',
+    year: 2023,
+    organism: 'Ministerio de Sanidad & Conselleria de Sanitat CV',
+    questionsCount: 100,
+    durationMinutes: 120,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('eir-cv'))
+  },
+  {
+    id: 'chguv-2022-oficial',
+    oppositionId: 'chguv-valencia',
+    title: 'Examen Oficial OPE CHGUV Valencia 2022',
+    subtitle: 'Consorci Hospital General Universitari de València - Turno Ordinario',
+    year: 2022,
+    organism: 'Consorcio Hospital General de Valencia',
+    questionsCount: 80,
+    durationMinutes: 100,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('chguv-valencia'))
+  },
+  {
+    id: 'samu-2022-oficial',
+    oppositionId: 'samu-ses',
+    title: 'Examen Oficial SAMU / SES CV 2022',
+    subtitle: 'Bolsa Específica de Trabajo y Selección de Enfermería en Emergencias Sanitarias',
+    year: 2022,
+    organism: 'Servicio de Emergencias Sanitarias CV',
+    questionsCount: 75,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('samu-ses'))
+  },
+  {
+    id: 'eir-2022-oficial',
+    oppositionId: 'eir-cv',
+    title: 'Examen EIR 2022 - Formación Sanitaria Especializada CV',
+    subtitle: 'Cuaderno Oficial de Examen para Unidades Docentes de la Comunitat Valenciana',
+    year: 2022,
+    organism: 'Ministerio de Sanidad & Generalitat Valenciana',
+    questionsCount: 100,
+    durationMinutes: 120,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('eir-cv'))
+  },
+  {
+    id: 'gva-2021-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2021',
+    subtitle: 'Proceso de Estabilización y Reposición - Turno Libre',
+    year: 2021,
+    organism: 'Conselleria de Sanitat GVA',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.year === 2021 || q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'samu-2020-oficial',
+    oppositionId: 'samu-ses',
+    title: 'Examen Oficial SAMU / SES CV 2020',
+    subtitle: 'Pruebas Específicas Enfermería Emergencias Extrahospitalarias',
+    year: 2020,
+    organism: 'Servicio de Emergencias Sanitarias CV',
+    questionsCount: 75,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('samu-ses'))
+  },
+  {
+    id: 'chguv-2019-oficial',
+    oppositionId: 'chguv-valencia',
+    title: 'Examen Oficial OPE CHGUV Valencia 2019',
+    subtitle: 'Consorci Hospital General Universitari de València - Acceso Libre',
+    year: 2019,
+    organism: 'Consorcio Hospital General de Valencia',
+    questionsCount: 80,
+    durationMinutes: 100,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('chguv-valencia'))
+  },
+  {
+    id: 'gva-2018-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2018',
+    subtitle: 'Convocatoria Turno Libre Ordinario - Plantilla Aprobada',
+    year: 2018,
+    organism: 'Conselleria de Sanitat Universal i Salut Pública (GVA)',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'gva-2017-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2017',
+    subtitle: 'Oferta de Empleo Público Conselleria de Sanitat - Turno Libre Ordinario',
+    year: 2017,
+    organism: 'Conselleria de Sanitat GVA',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'gva-2016-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2016',
+    subtitle: 'Oferta de Empleo Público Conselleria de Sanitat - Fase de Oposición',
+    year: 2016,
+    organism: 'Conselleria de Sanitat GVA',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('gva-enfermeria'))
+  },
+  {
+    id: 'gva-2015-oficial',
+    oppositionId: 'gva-enfermeria',
+    title: 'Examen Oficial OPE Sanitat GVA 2015',
+    subtitle: 'Convocatoria Generalitat Valenciana - Plantilla de Corrección Oficial',
+    year: 2015,
+    organism: 'Conselleria de Sanitat de la Generalitat Valenciana',
+    questionsCount: 70,
+    durationMinutes: 90,
+    passingScore: 50,
+    questions: QUESTIONS_BANK.filter(q => q.oppositionIds.includes('gva-enfermeria'))
+  }
+];
