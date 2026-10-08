@@ -47,15 +47,13 @@ interface SidebarProps {
   setActiveTab: (tab: string) => void;
   mobileOpen: boolean;
   setMobileOpen: (open: boolean) => void;
-  onOpenDeploymentGuide?: () => void;
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ 
   activeTab, 
   setActiveTab, 
   mobileOpen, 
-  setMobileOpen,
-  onOpenDeploymentGuide
+  setMobileOpen
 }) => {
   const { activeOpposition } = useApp();
 
@@ -130,17 +128,6 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <span className="text-[10px] font-mono text-amber-600 dark:text-amber-400">-0.33</span>
             </div>
           </div>
-
-          {/* Deployment Guide Button */}
-          {onOpenDeploymentGuide && (
-            <button
-              onClick={onOpenDeploymentGuide}
-              className="mt-3 w-full p-2.5 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/60 hover:bg-teal-100 dark:hover:bg-teal-900/60 text-teal-800 dark:text-teal-300 text-xs font-bold flex items-center justify-center space-x-2 transition-all shadow-2xs"
-            >
-              <Globe className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-              <span>Desplegar en Render / Vercel</span>
-            </button>
-          )}
 
         </div>
       </aside>

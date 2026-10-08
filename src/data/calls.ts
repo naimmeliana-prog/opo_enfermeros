@@ -114,5 +114,71 @@ export const REALTIME_CALLS: RealtimeOposicionCall[] = [
       'Grado en Enfermería',
       'Permiso B de conducir'
     ]
+  },
+  {
+    id: 'call-dep-salud-alicante',
+    organism: 'Hospital General Universitario Dr. Balmis de Alicante & ISABIAL',
+    scope: 'Alicante',
+    title: 'Bolsa Extraordinaria de Enfermería Especializada en Cuidados Críticos y Quirófano',
+    status: 'Plazo Abierto',
+    places: 120,
+    placesBreakdown: {
+      libre: 95,
+      promocion: 20,
+      diversidad: 5
+    },
+    deadline: '10 de Enero de 2025',
+    examDate: 'Febrero 2025',
+    dogvNum: 'DOGV Núm. 9745 / Acord HGUA',
+    dogvUrl: 'https://dogv.gva.es',
+    applicationUrl: 'https://alicante.san.gva.es',
+    requirements: [
+      'Grado o Diplomatura en Enfermería',
+      'Experiencia demostrable o formación acreditada en Cuidados Críticos'
+    ]
+  },
+  {
+    id: 'call-dep-salud-castellon',
+    organism: 'Consorci Hospitalari Provincial de Castelló',
+    scope: 'Castellón',
+    title: 'OPE y Bolsa Temporal de Enfermería Oncológica y Salud Mental de Castellón',
+    status: 'Fecha Fijada',
+    places: 85,
+    placesBreakdown: {
+      libre: 62,
+      promocion: 18,
+      diversidad: 5
+    },
+    deadline: 'Plazo de instancias cerrado',
+    examDate: '22 de Febrero de 2025 - 10:00h (UJI Castelló)',
+    dogvNum: 'DOGV Núm. 9738 / Res. Consorci Castelló',
+    dogvUrl: 'https://dogv.gva.es',
+    applicationUrl: 'https://www.hospitalprovincial.es',
+    requirements: [
+      'Grado o Diplomatura en Enfermería',
+      'Certificado de baremo específico de méritos'
+    ]
+  },
+  {
+    id: 'call-eir-comunitat-valenciana',
+    organism: 'Ministerio de Sanidad & Conselleria de Sanitat (Plazas EIR CV)',
+    scope: 'Comunitat Valenciana',
+    title: 'EIR 2024/2025 - Plazas Formación Especializada Enfermería en Hospitales de la CV',
+    status: 'Fecha Fijada',
+    places: 312,
+    placesBreakdown: {
+      libre: 288,
+      promocion: 0,
+      diversidad: 24
+    },
+    deadline: 'Plazo de instancias finalizado',
+    examDate: '25 de Enero de 2025 - 15:00h',
+    dogvNum: 'BOE Núm. 219 / DOGV Concurrente',
+    dogvUrl: 'https://www.sanidad.gob.es',
+    applicationUrl: 'https://fse.mscbs.gob.es',
+    requirements: [
+      'Grado o Diplomatura en Enfermería',
+      'Pago de tasas oficiales de examen o exención por desempleo/discapacidad'
+    ]
   }
 ];

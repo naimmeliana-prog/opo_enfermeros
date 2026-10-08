@@ -130,8 +130,7 @@ export const AIAssistantWidget: React.FC<AIAssistantWidgetProps> = ({ onOpenForu
             <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-400 rounded-full ring-2 ring-teal-600" />
           </div>
           <div className="text-left">
-            <span className="block text-[10px] uppercase font-bold text-teal-200 leading-none">Tutor Inteligente</span>
-            <span className="text-xs font-black tracking-tight">Preguntar a la IA</span>
+            <span className="text-xs font-black tracking-tight text-white">Tutor Inteligente</span>
           </div>
         </button>
       )}

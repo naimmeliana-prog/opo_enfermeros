@@ -18,7 +18,6 @@ import { StudyCalendarView } from './components/StudyCalendarView';
 import { AuthModal } from './components/AuthModal';
 import { ExamRunner } from './components/ExamRunner';
 import { AIAssistantWidget } from './components/AIAssistantWidget';
-import { DeploymentGuideModal } from './components/DeploymentGuideModal';
 import { QUESTIONS_BANK } from './data/questions';
 import { Menu, X } from 'lucide-react';
 
@@ -27,7 +26,6 @@ const MainLayout: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [deploymentModalOpen, setDeploymentModalOpen] = useState(false);
   const [quickExamActive, setQuickExamActive] = useState(false);
 
   // Quick 10-question practice test from dashboard
@@ -48,7 +46,6 @@ const MainLayout: React.FC = () => {
       {/* Top Navbar */}
       <Navbar 
         onOpenAuthModal={() => setAuthModalOpen(true)}
-        onOpenDeploymentGuide={() => setDeploymentModalOpen(true)}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
@@ -77,7 +74,6 @@ const MainLayout: React.FC = () => {
           }}
           mobileOpen={mobileMenuOpen}
           setMobileOpen={setMobileMenuOpen}
-          onOpenDeploymentGuide={() => setDeploymentModalOpen(true)}
         />
 
         {/* Main Content Area */}
@@ -131,12 +127,6 @@ const MainLayout: React.FC = () => {
       <AuthModal 
         isOpen={authModalOpen} 
         onClose={() => setAuthModalOpen(false)} 
-      />
-
-      {/* Deployment Guide Modal (Render, Vercel, Netlify, GitHub) */}
-      <DeploymentGuideModal 
-        isOpen={deploymentModalOpen} 
-        onClose={() => setDeploymentModalOpen(false)} 
       />
 
     </div>

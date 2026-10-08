@@ -19,10 +19,10 @@ export const GroupChatView: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const rooms = [
-    { id: 'general', name: 'Canal General OPE GVA', count: 42, desc: 'Dudas globales, avisos DOGV y motivación' },
-    { id: 'farmaco', name: 'Farmaco & Soporte Vital', count: 18, desc: 'Cálculo de dosis, antídotos y ritmos PCR' },
-    { id: 'legis', name: 'Legislación Sanitaria CV', count: 24, desc: 'Estatuto Marco, Ley 10/2014 y decretos' },
-    { id: 'guardias', name: 'Opositores Turno Noche', count: 15, desc: 'Estudio de madrugada y guardias de hospital' },
+    { id: 'general', name: 'Canal General OPE GVA', desc: 'Dudas globales, avisos DOGV y motivación' },
+    { id: 'farmaco', name: 'Farmaco & Soporte Vital', desc: 'Cálculo de dosis, antídotos y ritmos PCR' },
+    { id: 'legis', name: 'Legislación Sanitaria CV', desc: 'Estatuto Marco, Ley 10/2014 y decretos' },
+    { id: 'guardias', name: 'Opositores Turno Noche', desc: 'Estudio de madrugada y guardias de hospital' },
   ];
 
   const filteredMessages = chatMessages.filter(m => m.room === selectedRoom || (!m.room && selectedRoom === 'general'));
@@ -46,19 +46,19 @@ export const GroupChatView: React.FC = () => {
         <div>
           <div className="inline-flex items-center space-x-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300">
             <Radio className="w-3.5 h-3.5 animate-pulse text-rose-600" />
-            <span>Chat Grupal en Tiempo Real</span>
+            <span>Chat Grupal de Opositores</span>
           </div>
           <h2 className="text-xl font-bold text-slate-900 dark:text-white mt-1">
-            Salas de Estudio Colaborativo en Vivo
+            Salas de Estudio y Comunicación Directa
           </h2>
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            Comparte impresiones, resuelve dudas al instante y mantén la disciplina de estudio junto a otros opositores.
+            Comparte dudas sobre convocatorias y mantén el contacto con otros aspirantes en tiempo real.
           </p>
         </div>
 
-        <div className="flex items-center space-x-2 text-xs font-semibold px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800">
-          <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping inline-block" />
-          <span>99 Aspirantes Conectados</span>
+        <div className="flex items-center space-x-2 text-xs font-semibold px-3 py-1.5 rounded-xl bg-teal-50 dark:bg-teal-950/60 text-teal-800 dark:text-teal-300 border border-teal-200 dark:border-teal-800">
+          <span className="w-2 h-2 rounded-full bg-teal-500 animate-pulse inline-block" />
+          <span>Sala Activa • Conectado</span>
         </div>
       </div>
 
@@ -90,31 +90,17 @@ export const GroupChatView: React.FC = () => {
                   </div>
                   <div className="text-[11px] text-slate-500 line-clamp-1">{room.desc}</div>
                 </div>
-                <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-500">
-                  {room.count}
-                </span>
               </button>
             );
           })}
 
           <div className="pt-4 border-t border-slate-200 dark:border-slate-800">
             <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 px-2 mb-2 flex items-center gap-1">
-              <Users className="w-3.5 h-3.5" />
-              <span>Compañeros en Línea</span>
+              <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+              <span>Privacidad & Convivencia</span>
             </div>
-            <div className="space-y-2 px-2 text-xs">
-              <div className="flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-slate-700 dark:text-slate-300 font-medium">Alba_HospitalLaFe</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-slate-700 dark:text-slate-300 font-medium">David_SamuAlicante</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                <span className="text-slate-700 dark:text-slate-300 font-medium">Elena_CastellonGeneral</span>
-              </div>
+            <div className="p-2.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/50 text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed">
+              Mensajes anónimos o con tu apodo sin exponer tu correo electrónico ni datos personales.
             </div>
           </div>
         </div>
@@ -131,35 +117,47 @@ export const GroupChatView: React.FC = () => {
               </span>
             </div>
             <span className="text-[11px] text-slate-400">
-              Conectado como <strong className="text-teal-600">@{user?.username || 'Anónimo'}</strong>
+              Conectado como <strong className="text-teal-600">@{user?.username || 'Opositor_CV'}</strong>
             </span>
           </div>
 
           {/* Messages Feed */}
           <div className="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50/30 dark:bg-slate-950/20">
-            {filteredMessages.map(msg => (
-              <div
-                key={msg.id}
-                className={`flex items-start space-x-2.5 max-w-[85%] ${
-                  msg.isCurrentUser ? 'ml-auto flex-row-reverse space-x-reverse' : ''
-                }`}
-              >
-                <span className="text-xl shrink-0 p-1 bg-white dark:bg-slate-800 rounded-lg shadow-xs">{msg.avatar}</span>
+            {filteredMessages.length === 0 ? (
+              <div className="h-full flex flex-col items-center justify-center text-center p-6 space-y-2 text-slate-400">
+                <MessageCircle className="w-10 h-10 stroke-1 text-slate-300 dark:text-slate-600" />
+                <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  Canal listo para conversar
+                </p>
+                <p className="text-xs max-w-xs">
+                  No hay mensajes todavía en esta sala. Escribe un mensaje abajo para iniciar la conversación.
+                </p>
+              </div>
+            ) : (
+              filteredMessages.map(msg => (
                 <div
-                  className={`p-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
-                    msg.isCurrentUser
-                      ? 'bg-teal-600 text-white rounded-tr-xs'
-                      : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-tl-xs shadow-xs'
+                  key={msg.id}
+                  className={`flex items-start space-x-2.5 max-w-[85%] ${
+                    msg.isCurrentUser ? 'ml-auto flex-row-reverse space-x-reverse' : ''
                   }`}
                 >
-                  <div className="flex items-center justify-between gap-3 text-[10px] mb-1 opacity-70">
-                    <span className="font-bold">@{msg.sender}</span>
-                    <span>{msg.timestamp}</span>
+                  <span className="text-xl shrink-0 p-1 bg-white dark:bg-slate-800 rounded-lg shadow-xs">{msg.avatar}</span>
+                  <div
+                    className={`p-3 rounded-2xl text-xs sm:text-sm leading-relaxed ${
+                      msg.isCurrentUser
+                        ? 'bg-teal-600 text-white rounded-tr-xs'
+                        : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-tl-xs shadow-xs'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between gap-3 text-[10px] mb-1 opacity-70">
+                      <span className="font-bold">@{msg.sender}</span>
+                      <span>{msg.timestamp}</span>
+                    </div>
+                    <div>{msg.text}</div>
                   </div>
-                  <div>{msg.text}</div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
             <div ref={messagesEndRef} />
           </div>
 

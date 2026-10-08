@@ -21,14 +21,12 @@ import { OppositionId } from '../types';
 
 interface NavbarProps {
   onOpenAuthModal: () => void;
-  onOpenDeploymentGuide?: () => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenAuthModal, 
-  onOpenDeploymentGuide, 
   activeTab, 
   setActiveTab 
 }) => {
@@ -157,18 +155,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               {isOnline ? <Wifi className="w-4 h-4" /> : <WifiOff className="w-4 h-4 animate-bounce" />}
               {!isOnline && <span className="text-[11px] font-bold ml-1 hidden sm:inline">Offline</span>}
             </div>
-
-            {/* Deployment Guide Trigger */}
-            {onOpenDeploymentGuide && (
-              <button
-                onClick={onOpenDeploymentGuide}
-                className="hidden md:flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-teal-200 dark:border-teal-800 bg-teal-50 dark:bg-teal-950/70 text-teal-800 dark:text-teal-300 text-xs font-bold hover:bg-teal-100 transition-colors shadow-2xs"
-                title="Cómo desplegar en Render, Vercel o Netlify"
-              >
-                <Globe className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
-                <span>Desplegar Web</span>
-              </button>
-            )}
 
             {/* Dark Mode Toggle */}
             <button

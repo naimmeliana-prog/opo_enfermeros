@@ -274,49 +274,70 @@ export const ForumView: React.FC = () => {
 
           {/* Posts list */}
           <div className="space-y-3">
-            {filteredPosts.map(post => (
-              <div
-                key={post.id}
-                onClick={() => setActiveThread(post)}
-                className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-xs hover:border-teal-500 cursor-pointer transition-all space-y-3"
-              >
-                <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xl">{post.author.avatar}</span>
-                    <span className="font-bold text-slate-900 dark:text-white">
-                      @{post.author.username}
-                    </span>
-                    <span className="text-[10px] text-slate-400">• {post.createdAt}</span>
-                  </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300">
-                    {post.category}
-                  </span>
+            {filteredPosts.length === 0 ? (
+              <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 text-center space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/60 text-teal-600 dark:text-teal-400 flex items-center justify-center mx-auto text-xl">
+                  💬
                 </div>
-
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
-                  {post.title}
-                </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
-                  {post.content}
+                <h4 className="text-base font-bold text-slate-900 dark:text-white">
+                  El foro está listo para tus preguntas
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 max-w-md mx-auto">
+                  Aún no hay dudas publicadas en esta categoría. Sé el primero en iniciar un debate o consultar dudas del temario oficial.
                 </p>
-
-                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
-                  <div className="flex items-center space-x-4">
-                    <span className="flex items-center gap-1">
-                      <ThumbsUp className="w-3.5 h-3.5" />
-                      {post.likes}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <MessageSquare className="w-3.5 h-3.5" />
-                      {post.replies.length} respuestas
+                <button
+                  onClick={() => setShowNewPostModal(true)}
+                  className="inline-flex items-center space-x-2 px-4 py-2 rounded-xl bg-teal-600 hover:bg-teal-700 text-white text-xs font-bold transition-all shadow-xs"
+                >
+                  <PlusCircle className="w-4 h-4" />
+                  <span>Publicar Primera Duda</span>
+                </button>
+              </div>
+            ) : (
+              filteredPosts.map(post => (
+                <div
+                  key={post.id}
+                  onClick={() => setActiveThread(post)}
+                  className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-xs hover:border-teal-500 cursor-pointer transition-all space-y-3"
+                >
+                  <div className="flex items-center justify-between text-xs">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-xl">{post.author.avatar}</span>
+                      <span className="font-bold text-slate-900 dark:text-white">
+                        @{post.author.username}
+                      </span>
+                      <span className="text-[10px] text-slate-400">• {post.createdAt}</span>
+                    </div>
+                    <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-teal-50 dark:bg-teal-950 text-teal-700 dark:text-teal-300">
+                      {post.category}
                     </span>
                   </div>
-                  <span className="text-teal-600 dark:text-teal-400 font-semibold text-[11px]">
-                    Ver conversación →
-                  </span>
+
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">
+                    {post.content}
+                  </p>
+
+                  <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+                    <div className="flex items-center space-x-4">
+                      <span className="flex items-center gap-1">
+                        <ThumbsUp className="w-3.5 h-3.5" />
+                        {post.likes}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <MessageSquare className="w-3.5 h-3.5" />
+                        {post.replies.length} respuestas
+                      </span>
+                    </div>
+                    <span className="text-teal-600 dark:text-teal-400 font-semibold text-[11px]">
+                      Ver conversación →
+                    </span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
 
         </div>

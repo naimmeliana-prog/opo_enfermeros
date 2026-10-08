@@ -100,35 +100,7 @@ const defaultStats: UserStats = {
   ]
 };
 
-const initialChat: ChatMessage[] = [
-  {
-    id: 'c1',
-    room: 'general',
-    sender: 'Alba_EnfermeraVLC',
-    avatar: '👩‍⚕️',
-    text: '¡Hola a todos! ¿Alguien repasando el tema de la Ley 10/2014 de Salud de la CV esta tarde?',
-    timestamp: '10:15',
-    isCurrentUser: false
-  },
-  {
-    id: 'c2',
-    room: 'general',
-    sender: 'Marcos_LaFe',
-    avatar: '👨‍⚕️',
-    text: 'Yo acabo de hacer el test de faltas del Estatuto Marco, ¡ojo que en la OPE siempre preguntan los 4 años de muy graves!',
-    timestamp: '10:18',
-    isCurrentUser: false
-  },
-  {
-    id: 'c3',
-    room: 'general',
-    sender: 'Lucía_Elche',
-    avatar: '👩‍🔬',
-    text: '¡Exacto! Y los 2 años en graves. Menos mal que esta app tiene las justificaciones de cada opción.',
-    timestamp: '10:22',
-    isCurrentUser: false
-  }
-];
+const initialChat: ChatMessage[] = [];
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
@@ -433,35 +405,13 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const msg: ChatMessage = {
       id: `chat-${Date.now()}`,
       room,
-      sender: user?.username || 'Opositor_Anon',
+      sender: user?.username || 'Opositor_CV',
       avatar: user?.avatar || '🩺',
       text: text.trim(),
       timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
       isCurrentUser: true
     };
     setChatMessages(prev => [...prev, msg]);
-
-    // Simulated community buddy response after a brief delay
-    setTimeout(() => {
-      const buddyReplies = [
-        '¡Totalmente de acuerdo! Mucho ánimo con el estudio 💪',
-        'Justo me tocó repasar ese apartado en el examen oficial de 2021.',
-        '¿Alguien tiene a mano el artículo exacto del Estatuto de Autonomía?',
-        '¡A por la plaza en el Hospital La Fe / General!',
-        'Revisad bien los plazos de la Ley 55/2003 que es pregunta fija de tribunal.'
-      ];
-      const randomReply = buddyReplies[Math.floor(Math.random() * buddyReplies.length)];
-      const autoReply: ChatMessage = {
-        id: `chat-reply-${Date.now()}`,
-        room,
-        sender: 'Vicente_EnfermeroCV',
-        avatar: '👨‍⚕️',
-        text: randomReply,
-        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        isCurrentUser: false
-      };
-      setChatMessages(prev => [...prev, autoReply]);
-    }, 2400);
   };
 
   // Study Sessions

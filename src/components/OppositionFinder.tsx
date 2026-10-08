@@ -28,8 +28,11 @@ export const OppositionFinder: React.FC = () => {
   const getMappedOppositionId = (callId: string): OppositionId => {
     if (callId.includes('chguv')) return 'chguv-valencia';
     if (callId.includes('samu')) return 'samu-ses';
+    if (callId.includes('eir')) return 'eir-cv';
     return 'gva-enfermeria';
   };
+
+  const totalPlacesSum = REALTIME_CALLS.reduce((acc, c) => acc + c.places, 0);
 
   const filteredCalls = REALTIME_CALLS.filter(call => {
     const matchesSearch = 
@@ -64,7 +67,7 @@ export const OppositionFinder: React.FC = () => {
         <div className="text-right">
           <div className="text-xs text-slate-400">Total Plazas Convocadas</div>
           <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400 font-mono">
-            4.484 Plazas
+            {totalPlacesSum.toLocaleString('es-ES')} Plazas
           </div>
         </div>
       </div>
@@ -95,6 +98,8 @@ export const OppositionFinder: React.FC = () => {
               <option value="all">Todos los Ámbitos Territoriales</option>
               <option value="Comunitat Valenciana">Toda la Comunitat Valenciana</option>
               <option value="Valencia">Valencia (Provincia y Ciudad)</option>
+              <option value="Alicante">Alicante (Provincia y Hospitales)</option>
+              <option value="Castellón">Castellón (Provincia y Consorcios)</option>
             </select>
           </div>
 
